@@ -35,6 +35,26 @@
   --ease-out: cubic-bezier(0.22, 0.75, 0.2, 1);
   --dur-1: 160ms;
   --dur-2: 320ms;
+
+  /* Site container — middle two-thirds of the viewport, capped on
+     large screens, floored on small ones so content doesn't crush.
+     Every width-bounded block reads from this token. */
+  --container: min(max(66.67vw, 320px), 1240px);
+}
+
+/* On narrower displays 2/3 of the viewport is too tight to read, so
+   the container widens proportionally — the design intent is "middle
+   two-thirds on desktop," not "crush text on a phone." */
+@media (max-width: 1100px) {
+  :root { --container: min(78vw, 980px); }
+}
+
+@media (max-width: 820px) {
+  :root { --container: min(88vw, 720px); }
+}
+
+@media (max-width: 560px) {
+  :root { --container: calc(100vw - 32px); }
 }
 
 /* ==========================================================================

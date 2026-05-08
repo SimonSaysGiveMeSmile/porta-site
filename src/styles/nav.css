@@ -6,14 +6,13 @@
   z-index: 50;
   display: flex;
   justify-content: center;
-  padding: 0 14px;
   pointer-events: none;
 }
 
 .nav {
   pointer-events: auto;
   display: block;
-  width: min(100%, 1040px);
+  width: var(--container);
   border-radius: var(--r-pill);
   padding: 13px 12px 13px 26px;
   white-space: nowrap;

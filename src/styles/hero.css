@@ -3,8 +3,8 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: clamp(84px, 9vh, 120px) clamp(20px, 5vw, 56px) clamp(48px, 6vh, 96px);
-  max-width: 1240px;
+  padding: clamp(84px, 9vh, 120px) 0 clamp(48px, 6vh, 96px);
+  width: var(--container);
   margin: 0 auto;
 }
 

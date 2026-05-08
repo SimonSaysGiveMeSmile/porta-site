@@ -4,8 +4,8 @@ main {
 
 .section {
   position: relative;
-  padding: clamp(72px, 10vw, 160px) clamp(20px, 5vw, 56px);
-  max-width: 1240px;
+  padding: clamp(72px, 10vw, 160px) 0;
+  width: var(--container);
   margin: 0 auto;
 }
 
