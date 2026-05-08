@@ -1,24 +1,4 @@
 :root {
-  /* Core black & white palette — iOS 26 vibe: deep inky base,
-     pearl whites, and a short tonal staircase in between. */
-  --bg: #050505;
-  --bg-2: #0a0a0a;
-  --fg: #f5f5f7;
-  --fg-dim: rgba(245, 245, 247, 0.72);
-  --fg-mute: rgba(245, 245, 247, 0.48);
-  --fg-faint: rgba(245, 245, 247, 0.24);
-
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
-
-  /* Glass layers */
-  --glass-tint: rgba(255, 255, 255, 0.06);
-  --glass-tint-strong: rgba(255, 255, 255, 0.1);
-  --glass-edge: rgba(255, 255, 255, 0.35);
-  --glass-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85),
-    0 2px 1px rgba(255, 255, 255, 0.06) inset,
-    0 -1px 0 rgba(255, 255, 255, 0.04) inset;
-
   /* Radii — generous, iOS 26 pill language */
   --r-sm: 12px;
   --r-md: 18px;
@@ -57,9 +37,144 @@
   --dur-2: 320ms;
 }
 
+/* ==========================================================================
+   DARK THEME (default)
+   ========================================================================== */
+:root,
+[data-theme='dark'] {
+  --bg: #050505;
+  --bg-2: #0a0a0a;
+  --fg: #f5f5f7;
+  --fg-dim: rgba(245, 245, 247, 0.72);
+  --fg-mute: rgba(245, 245, 247, 0.48);
+  --fg-faint: rgba(245, 245, 247, 0.24);
+
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  --glass-tint-top: rgba(255, 255, 255, 0.06);
+  --glass-tint-mid: rgba(255, 255, 255, 0.025);
+  --glass-tint-bot: rgba(255, 255, 255, 0.01);
+
+  --glass-edge-top: rgba(255, 255, 255, 0.08);
+  --glass-edge-bot: rgba(255, 255, 255, 0.02);
+  --glass-edge-ring: rgba(255, 255, 255, 0.06);
+  --glass-shadow: rgba(0, 0, 0, 0.75);
+
+  --glass-soft-edge-top: rgba(255, 255, 255, 0.06);
+  --glass-soft-edge-ring: rgba(255, 255, 255, 0.05);
+  --glass-soft-shadow: rgba(0, 0, 0, 0.65);
+
+  --btn-primary-bg: #fff;
+  --btn-primary-fg: #000;
+  --btn-primary-bg-hover: #f2f2f2;
+  --btn-primary-shadow: rgba(255, 255, 255, 0.18);
+  --btn-ghost-bg: rgba(255, 255, 255, 0.04);
+  --btn-ghost-bg-hover: rgba(255, 255, 255, 0.08);
+  --btn-ghost-ring: rgba(255, 255, 255, 0.08);
+
+  --chip-bg: rgba(255, 255, 255, 0.04);
+  --chip-ring: rgba(255, 255, 255, 0.06);
+
+  --aurora-1: rgba(255, 255, 255, 0.08);
+  --aurora-2: rgba(255, 255, 255, 0.04);
+  --aurora-3: rgba(255, 255, 255, 0.05);
+  --aurora-orb-1: rgba(255, 255, 255, 0.2);
+  --aurora-orb-2: rgba(255, 255, 255, 0.12);
+  --aurora-bg: linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
+
+  --phone-bezel: #0a0a0a;
+  --phone-bezel-ring: rgba(255, 255, 255, 0.08);
+  --phone-screen-bg: linear-gradient(180deg, #0a0a0a, #050505);
+  --phone-screen-glow: rgba(255, 255, 255, 0.06);
+  --phone-avatar: linear-gradient(135deg, #fff, #999);
+  --phone-approve-bg: #fff;
+  --phone-approve-fg: #000;
+  --phone-bar-bg: rgba(255, 255, 255, 0.12);
+  --phone-bar-fill: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5));
+  --phone-url-bg: rgba(0, 0, 0, 0.35);
+
+  --waitlist-form-bg: rgba(255, 255, 255, 0.04);
+  --waitlist-form-ring: rgba(255, 255, 255, 0.08);
+  --waitlist-form-shadow: rgba(0, 0, 0, 0.85);
+
+  --footer-bg: rgba(0, 0, 0, 0.6);
+
+  --msg-err: #ffd4d4;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+[data-theme='light'] {
+  --bg: #f6f6f8;
+  --bg-2: #ececee;
+  --fg: #0a0a0c;
+  --fg-dim: rgba(10, 10, 12, 0.72);
+  --fg-mute: rgba(10, 10, 12, 0.52);
+  --fg-faint: rgba(10, 10, 12, 0.3);
+
+  --line: rgba(10, 10, 12, 0.08);
+  --line-strong: rgba(10, 10, 12, 0.16);
+
+  --glass-tint-top: rgba(255, 255, 255, 0.55);
+  --glass-tint-mid: rgba(255, 255, 255, 0.28);
+  --glass-tint-bot: rgba(255, 255, 255, 0.1);
+
+  --glass-edge-top: rgba(255, 255, 255, 0.9);
+  --glass-edge-bot: rgba(10, 10, 12, 0.06);
+  --glass-edge-ring: rgba(10, 10, 12, 0.08);
+  --glass-shadow: rgba(10, 10, 12, 0.18);
+
+  --glass-soft-edge-top: rgba(255, 255, 255, 0.8);
+  --glass-soft-edge-ring: rgba(10, 10, 12, 0.06);
+  --glass-soft-shadow: rgba(10, 10, 12, 0.12);
+
+  --btn-primary-bg: #0a0a0c;
+  --btn-primary-fg: #fff;
+  --btn-primary-bg-hover: #1f1f22;
+  --btn-primary-shadow: rgba(10, 10, 12, 0.25);
+  --btn-ghost-bg: rgba(10, 10, 12, 0.04);
+  --btn-ghost-bg-hover: rgba(10, 10, 12, 0.08);
+  --btn-ghost-ring: rgba(10, 10, 12, 0.1);
+
+  --chip-bg: rgba(255, 255, 255, 0.55);
+  --chip-ring: rgba(10, 10, 12, 0.08);
+
+  --aurora-1: rgba(255, 255, 255, 0.8);
+  --aurora-2: rgba(10, 10, 12, 0.04);
+  --aurora-3: rgba(255, 255, 255, 0.6);
+  --aurora-orb-1: rgba(255, 255, 255, 0.9);
+  --aurora-orb-2: rgba(10, 10, 12, 0.05);
+  --aurora-bg: linear-gradient(180deg, #ececee 0%, #f6f6f8 50%, #e4e4e8 100%);
+
+  --phone-bezel: #dcdce0;
+  --phone-bezel-ring: rgba(10, 10, 12, 0.12);
+  --phone-screen-bg: linear-gradient(180deg, #fafafa, #ececee);
+  --phone-screen-glow: rgba(255, 255, 255, 0.8);
+  --phone-avatar: linear-gradient(135deg, #0a0a0c, #54545a);
+  --phone-approve-bg: #0a0a0c;
+  --phone-approve-fg: #fff;
+  --phone-bar-bg: rgba(10, 10, 12, 0.1);
+  --phone-bar-fill: linear-gradient(90deg, #0a0a0c, rgba(10, 10, 12, 0.5));
+  --phone-url-bg: rgba(255, 255, 255, 0.65);
+
+  --waitlist-form-bg: rgba(255, 255, 255, 0.6);
+  --waitlist-form-ring: rgba(10, 10, 12, 0.08);
+  --waitlist-form-shadow: rgba(10, 10, 12, 0.14);
+
+  --footer-bg: rgba(255, 255, 255, 0.55);
+
+  --msg-err: #8a1e1e;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
 /* Aurora backdrop — soft white orbs behind the whole page that the glass
-   filters can actually refract. Black & white only, no color casts. Kept
-   dim on purpose so glass surfaces don't pick up blown-out highlights. */
+   filters can actually refract. The hues flip with the theme. */
 .aurora {
   position: fixed;
   inset: 0;
@@ -67,10 +182,11 @@
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(55vmax 55vmax at 18% 8%, rgba(255, 255, 255, 0.08), transparent 62%),
-    radial-gradient(45vmax 45vmax at 82% 28%, rgba(255, 255, 255, 0.04), transparent 66%),
-    radial-gradient(50vmax 50vmax at 60% 100%, rgba(255, 255, 255, 0.05), transparent 70%),
-    linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
+    radial-gradient(55vmax 55vmax at 18% 8%, var(--aurora-1), transparent 62%),
+    radial-gradient(45vmax 45vmax at 82% 28%, var(--aurora-2), transparent 66%),
+    radial-gradient(50vmax 50vmax at 60% 100%, var(--aurora-3), transparent 70%),
+    var(--aurora-bg);
+  transition: background var(--dur-2) var(--ease-out);
 }
 
 .aurora::before,
@@ -79,7 +195,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
-  opacity: 0.28;
+  opacity: 0.3;
   animation: drift 32s var(--ease-out) infinite alternate;
 }
 
@@ -88,7 +204,7 @@
   height: 46vmax;
   top: -12vmax;
   left: -10vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle, var(--aurora-orb-1), transparent 70%);
 }
 
 .aurora::after {
@@ -96,7 +212,7 @@
   height: 40vmax;
   bottom: -14vmax;
   right: -10vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+  background: radial-gradient(circle, var(--aurora-orb-2), transparent 70%);
   animation-duration: 40s;
   animation-delay: -10s;
 }

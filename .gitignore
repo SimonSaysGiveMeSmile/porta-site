@@ -9,5 +9,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 *.log
+*.tsbuildinfo
 .agents
 .claude

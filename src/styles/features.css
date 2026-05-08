@@ -21,7 +21,7 @@
   min-height: 210px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   transition: transform var(--dur-2) var(--ease-out);
 }
 
@@ -33,11 +33,12 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
+  margin-bottom: 6px;
   display: grid;
   place-items: center;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  color: var(--fg);
+  background: var(--chip-bg);
+  box-shadow: 0 0 0 1px var(--chip-ring) inset;
 }
 
 .feature__icon svg {
@@ -49,7 +50,7 @@
   font-size: var(--fs-h3);
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #fff;
+  color: var(--fg);
   line-height: 1.2;
 }
 

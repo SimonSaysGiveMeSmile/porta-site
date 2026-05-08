@@ -27,8 +27,8 @@
   color: var(--fg-mute);
   padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  background: var(--chip-bg);
+  box-shadow: 0 0 0 1px var(--chip-ring) inset;
   align-self: flex-start;
 }
 
@@ -36,7 +36,7 @@
   font-size: var(--fs-h3);
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #fff;
+  color: var(--fg);
   line-height: 1.2;
 }
 

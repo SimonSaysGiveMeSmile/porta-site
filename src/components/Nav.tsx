@@ -1,4 +1,5 @@
 import Glass from './Glass';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { label: 'Features', href: '#features' },
@@ -17,14 +18,8 @@ export default function Nav() {
             aria-hidden
             focusable="false"
           >
-            <defs>
-              <linearGradient id="markFill" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#ffffff" />
-                <stop offset="100%" stopColor="#c8c8c8" />
-              </linearGradient>
-            </defs>
-            <circle cx="16" cy="16" r="10" fill="none" stroke="url(#markFill)" strokeWidth="1.6" />
-            <circle cx="16" cy="16" r="3.2" fill="url(#markFill)" />
+            <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+            <circle cx="16" cy="16" r="3.2" fill="currentColor" />
           </svg>
           <span className="nav__wordmark">Porta</span>
         </a>
@@ -37,19 +32,12 @@ export default function Nav() {
           ))}
         </ul>
 
-        <a href="#waitlist" className="nav__cta">
-          <span>Join waitlist</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
-            <path
-              d="M2 7h9M7.5 3.5 11 7l-3.5 3.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+        <div className="nav__actions">
+          <ThemeToggle />
+          <a href="#waitlist" className="nav__cta">
+            Join waitlist
+          </a>
+        </div>
       </Glass>
     </header>
   );
