@@ -10,8 +10,8 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(20px, 2.6vw, 40px);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(12px, 2vw, 32px);
   align-items: center;
   width: 100%;
 }
