@@ -12,14 +12,22 @@
 
 .nav {
   pointer-events: auto;
+  display: block;
+  width: min(100%, 920px);
+  border-radius: var(--r-pill);
+  padding: 7px 8px 7px 18px;
+  white-space: nowrap;
+}
+
+/* The Glass primitive wraps children in a .glass__content span, so the
+   real flex container has to be that inner wrapper — not the host nav. */
+.nav > .glass__content {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   gap: clamp(12px, 2vw, 24px);
-  padding: 7px 8px 7px 18px;
-  width: min(100%, 920px);
-  border-radius: var(--r-pill);
-  white-space: nowrap;
+  width: 100%;
+  min-width: 0;
 }
 
 .nav__brand {
