@@ -1,0 +1,91 @@
+.nav-wrap {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 10px 12px 10px 20px;
+  width: min(100%, 960px);
+  border-radius: var(--r-pill);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.nav__mark {
+  width: 22px;
+  height: 22px;
+}
+
+.nav__wordmark {
+  font-size: 16px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-left: auto;
+  margin-right: var(--space-3);
+}
+
+.nav__links a {
+  color: var(--fg-dim);
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  padding: 8px 4px;
+  transition: color var(--dur-1) var(--ease-out);
+}
+
+.nav__links a:hover {
+  color: var(--fg);
+}
+
+.nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92);
+  color: #000;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background var(--dur-1) var(--ease-out), transform var(--dur-1) var(--ease-out);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+.nav__cta:hover {
+  background: #fff;
+}
+
+.nav__cta:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .nav__links {
+    display: none;
+  }
+  .nav {
+    padding-left: 14px;
+    padding-right: 8px;
+  }
+}

@@ -1,0 +1,114 @@
+:root {
+  /* Core black & white palette — iOS 26 vibe: deep inky base,
+     pearl whites, and a short tonal staircase in between. */
+  --bg: #050505;
+  --bg-2: #0a0a0a;
+  --fg: #f5f5f7;
+  --fg-dim: rgba(245, 245, 247, 0.72);
+  --fg-mute: rgba(245, 245, 247, 0.48);
+  --fg-faint: rgba(245, 245, 247, 0.24);
+
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Glass layers */
+  --glass-tint: rgba(255, 255, 255, 0.06);
+  --glass-tint-strong: rgba(255, 255, 255, 0.1);
+  --glass-edge: rgba(255, 255, 255, 0.35);
+  --glass-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85),
+    0 2px 1px rgba(255, 255, 255, 0.06) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  /* Radii — generous, iOS 26 pill language */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Typography — SF first, graceful fallbacks */
+  --font-sans: 'SF Pro Display', 'SF Pro Text', -apple-system,
+    BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas,
+    monospace;
+
+  /* Fluid type ramps */
+  --fs-eyebrow: 13px;
+  --fs-body: clamp(15px, 0.95vw + 12px, 17px);
+  --fs-lede: clamp(17px, 0.6vw + 16px, 20px);
+  --fs-h3: clamp(20px, 0.8vw + 18px, 24px);
+  --fs-h2: clamp(32px, 2.6vw + 18px, 56px);
+  --fs-h1: clamp(44px, 5vw + 20px, 96px);
+
+  --ease-out: cubic-bezier(0.22, 0.75, 0.2, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+}
+
+/* Aurora backdrop — soft white orbs behind the whole page that the glass
+   filters can actually refract. Black & white only, no color casts. */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(60vmax 60vmax at 15% 10%, rgba(255, 255, 255, 0.16), transparent 60%),
+    radial-gradient(45vmax 45vmax at 85% 30%, rgba(255, 255, 255, 0.08), transparent 65%),
+    radial-gradient(50vmax 50vmax at 60% 100%, rgba(255, 255, 255, 0.12), transparent 70%),
+    linear-gradient(180deg, #000 0%, #060606 50%, #000 100%);
+}
+
+.aurora::before,
+.aurora::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: drift 22s var(--ease-out) infinite alternate;
+}
+
+.aurora::before {
+  width: 48vmax;
+  height: 48vmax;
+  top: -10vmax;
+  left: -10vmax;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35), transparent 70%);
+}
+
+.aurora::after {
+  width: 42vmax;
+  height: 42vmax;
+  bottom: -12vmax;
+  right: -8vmax;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 70%);
+  animation-duration: 28s;
+  animation-delay: -8s;
+}
+
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(4vmax, -3vmax, 0) scale(1.08); }
+  100% { transform: translate3d(-3vmax, 5vmax, 0) scale(0.96); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before,
+  .aurora::after {
+    animation: none;
+  }
+}
