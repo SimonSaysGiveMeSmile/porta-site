@@ -11,7 +11,7 @@
 .hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(12px, 2vw, 32px);
+  gap: 0;
   align-items: center;
   width: 100%;
 }
