@@ -14,12 +14,14 @@ type Props = {
 };
 
 /**
- * Wraps children in a layered div that looks like iOS 26 Liquid Glass:
- *   1. a backdrop layer with our SVG refraction filter applied to whatever
- *      is behind the card
- *   2. a translucent white tint layer
- *   3. a rim highlight drawn as an SVG stroke so it is a true vector edge
- *   4. the actual content on top
+ * Liquid glass primitive. Three layers, bottom to top:
+ *   1. a backdrop layer with our SVG refraction filter
+ *   2. a translucent white tint
+ *   3. the real content
+ *
+ * The rim highlight is intentionally a CSS inset shadow on the host,
+ * not an SVG stroke — SVG rect can't inherit the host's border-radius,
+ * so a stroked rect reads as a hard box on pills and rounded cards.
  */
 export default function Glass({
   variant = 'default',
@@ -49,29 +51,9 @@ export default function Glass({
       <span
         className="glass__refraction"
         aria-hidden
-        style={{ backdropFilter: `url(#${filterId}) blur(14px) saturate(1.4)` }}
+        style={{ backdropFilter: `url(#${filterId}) blur(14px) saturate(1.3)` }}
       />
       <span className="glass__tint" aria-hidden />
-      <svg className="glass__rim" aria-hidden preserveAspectRatio="none">
-        <rect
-          x="0.5"
-          y="0.5"
-          width="calc(100% - 1px)"
-          height="calc(100% - 1px)"
-          rx="inherit"
-          fill="none"
-          stroke="url(#glassRim)"
-          strokeWidth="1"
-          vectorEffect="non-scaling-stroke"
-        />
-        <defs>
-          <linearGradient id="glassRim" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.18)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.55)" />
-          </linearGradient>
-        </defs>
-      </svg>
       <span className="glass__content">{children}</span>
     </Tag>
   );

@@ -9,88 +9,28 @@ export default function LiquidGlassDefs() {
       style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}
     >
       <defs>
-        {/* Core liquid glass: turbulent noise drives a displacement map so
-            whatever sits behind the element is bent as if passing through a
-            thick pane. A soft gaussian blur frosts it, a specular light rig
-            adds the curved-glass glint, and the whole thing is composited
-            back against the source so edges stay sharp. */}
+        {/* Core liquid glass: low-frequency turbulent noise drives a gentle
+            displacement map so whatever sits behind the element is bent as
+            if passing through a thick pane, then lightly frosted. No
+            specular pass — in a pure B&W palette the specular rig bloomed
+            bright white spots that fought the type. The rim highlight is
+            handled by inset box-shadow in CSS. */}
         <filter
           id="liquid-glass"
-          x="-20%"
-          y="-20%"
-          width="140%"
-          height="140%"
+          x="-10%"
+          y="-10%"
+          width="120%"
+          height="120%"
           colorInterpolationFilters="sRGB"
         >
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.012 0.018"
+            baseFrequency="0.008 0.014"
             numOctaves="2"
             seed="7"
             result="noise"
           />
-          <feGaussianBlur in="noise" stdDeviation="1.4" result="softNoise" />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="softNoise"
-            scale="34"
-            xChannelSelector="R"
-            yChannelSelector="G"
-            result="refracted"
-          />
-          <feGaussianBlur in="refracted" stdDeviation="0.6" result="frosted" />
-
-          {/* Specular highlight: a virtual light ramp curves across the surface */}
-          <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="bumpBase" />
-          <feSpecularLighting
-            in="bumpBase"
-            surfaceScale="5"
-            specularConstant="0.9"
-            specularExponent="60"
-            lightingColor="#ffffff"
-            result="specular"
-          >
-            <fePointLight x="120" y="-40" z="260" />
-          </feSpecularLighting>
-          <feComposite
-            in="specular"
-            in2="SourceAlpha"
-            operator="in"
-            result="specClipped"
-          />
-          <feComposite
-            in="frosted"
-            in2="specClipped"
-            operator="arithmetic"
-            k1="0"
-            k2="1"
-            k3="0.7"
-            k4="0"
-            result="lit"
-          />
-          <feMerge>
-            <feMergeNode in="lit" />
-          </feMerge>
-        </filter>
-
-        {/* Softer variant used by the nav bar — less displacement, more frost,
-            so text behind it stays readable while it still bends the aurora. */}
-        <filter
-          id="liquid-glass-soft"
-          x="-10%"
-          y="-30%"
-          width="120%"
-          height="160%"
-          colorInterpolationFilters="sRGB"
-        >
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.008 0.02"
-            numOctaves="2"
-            seed="3"
-            result="noise"
-          />
-          <feGaussianBlur in="noise" stdDeviation="1.8" result="softNoise" />
+          <feGaussianBlur in="noise" stdDeviation="1.6" result="softNoise" />
           <feDisplacementMap
             in="SourceGraphic"
             in2="softNoise"
@@ -99,26 +39,42 @@ export default function LiquidGlassDefs() {
             yChannelSelector="G"
             result="refracted"
           />
-          <feGaussianBlur in="refracted" stdDeviation="0.9" result="frosted" />
+          <feGaussianBlur in="refracted" stdDeviation="0.4" result="out" />
           <feMerge>
-            <feMergeNode in="frosted" />
+            <feMergeNode in="out" />
           </feMerge>
         </filter>
 
-        {/* Edge light: the bright rim you see on iOS 26 glass pills */}
+        {/* Softer variant used by the nav bar — minimal displacement, more
+            frost, so text behind it stays readable while it still bends
+            the aurora. */}
         <filter
-          id="liquid-glass-rim"
+          id="liquid-glass-soft"
           x="-5%"
-          y="-5%"
+          y="-15%"
           width="110%"
-          height="110%"
+          height="130%"
+          colorInterpolationFilters="sRGB"
         >
-          <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="out" />
-          <feMorphology in="SourceAlpha" operator="erode" radius="1.2" result="inn" />
-          <feComposite in="out" in2="inn" operator="out" result="ring" />
-          <feGaussianBlur in="ring" stdDeviation="0.8" result="ringSoft" />
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.006 0.016"
+            numOctaves="2"
+            seed="3"
+            result="noise"
+          />
+          <feGaussianBlur in="noise" stdDeviation="2" result="softNoise" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="softNoise"
+            scale="7"
+            xChannelSelector="R"
+            yChannelSelector="G"
+            result="refracted"
+          />
+          <feGaussianBlur in="refracted" stdDeviation="0.6" result="out" />
           <feMerge>
-            <feMergeNode in="ringSoft" />
+            <feMergeNode in="out" />
           </feMerge>
         </filter>
       </defs>

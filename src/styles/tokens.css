@@ -58,7 +58,8 @@
 }
 
 /* Aurora backdrop — soft white orbs behind the whole page that the glass
-   filters can actually refract. Black & white only, no color casts. */
+   filters can actually refract. Black & white only, no color casts. Kept
+   dim on purpose so glass surfaces don't pick up blown-out highlights. */
 .aurora {
   position: fixed;
   inset: 0;
@@ -66,10 +67,10 @@
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(60vmax 60vmax at 15% 10%, rgba(255, 255, 255, 0.16), transparent 60%),
-    radial-gradient(45vmax 45vmax at 85% 30%, rgba(255, 255, 255, 0.08), transparent 65%),
-    radial-gradient(50vmax 50vmax at 60% 100%, rgba(255, 255, 255, 0.12), transparent 70%),
-    linear-gradient(180deg, #000 0%, #060606 50%, #000 100%);
+    radial-gradient(55vmax 55vmax at 18% 8%, rgba(255, 255, 255, 0.08), transparent 62%),
+    radial-gradient(45vmax 45vmax at 82% 28%, rgba(255, 255, 255, 0.04), transparent 66%),
+    radial-gradient(50vmax 50vmax at 60% 100%, rgba(255, 255, 255, 0.05), transparent 70%),
+    linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
 }
 
 .aurora::before,
@@ -77,33 +78,33 @@
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: drift 22s var(--ease-out) infinite alternate;
+  filter: blur(100px);
+  opacity: 0.28;
+  animation: drift 32s var(--ease-out) infinite alternate;
 }
 
 .aurora::before {
-  width: 48vmax;
-  height: 48vmax;
-  top: -10vmax;
+  width: 46vmax;
+  height: 46vmax;
+  top: -12vmax;
   left: -10vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.35), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
 }
 
 .aurora::after {
-  width: 42vmax;
-  height: 42vmax;
-  bottom: -12vmax;
-  right: -8vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 70%);
-  animation-duration: 28s;
-  animation-delay: -8s;
+  width: 40vmax;
+  height: 40vmax;
+  bottom: -14vmax;
+  right: -10vmax;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+  animation-duration: 40s;
+  animation-delay: -10s;
 }
 
 @keyframes drift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(4vmax, -3vmax, 0) scale(1.08); }
-  100% { transform: translate3d(-3vmax, 5vmax, 0) scale(0.96); }
+  50%  { transform: translate3d(3vmax, -2vmax, 0) scale(1.05); }
+  100% { transform: translate3d(-2vmax, 3vmax, 0) scale(0.98); }
 }
 
 @media (prefers-reduced-motion: reduce) {

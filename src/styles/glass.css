@@ -1,18 +1,19 @@
-/* Liquid glass primitive.
-   Stack, top to bottom inside the element:
-     .glass__refraction  — backdrop-filter w/ our SVG displacement filter
-     .glass__tint        — white-on-transparent wash
-     .glass__rim         — true SVG border gradient
-     .glass__content     — the real children
-*/
+/* Liquid glass primitive — iOS 26 style.
+   The rim/edge highlight is done with inset box-shadows on the host so it
+   follows border-radius precisely (pills, cards, everything). The SVG
+   refraction + tint live as stacked layers underneath the content. */
 
 .glass {
   position: relative;
   isolation: isolate;
   border-radius: var(--r-lg);
   color: var(--fg);
-  box-shadow: var(--glass-shadow);
   overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.02) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 20px 44px -28px rgba(0, 0, 0, 0.75);
 }
 
 .glass--pill {
@@ -21,14 +22,13 @@
 
 .glass--soft {
   box-shadow:
-    0 18px 40px -28px rgba(0, 0, 0, 0.75),
-    0 1px 0 rgba(255, 255, 255, 0.1) inset,
-    0 -1px 0 rgba(255, 255, 255, 0.04) inset;
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 14px 30px -24px rgba(0, 0, 0, 0.65);
 }
 
 .glass__refraction,
-.glass__tint,
-.glass__rim {
+.glass__tint {
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -39,8 +39,8 @@
   z-index: 0;
   /* Fallback when SVG filter URLs aren't supported: plain blur still
      renders something iOS-y rather than nothing. */
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
 }
 
 .glass__tint {
@@ -48,66 +48,24 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0.02) 100%
-    ),
-    radial-gradient(
-      120% 80% at 20% 0%,
-      rgba(255, 255, 255, 0.18),
-      transparent 60%
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.025) 40%,
+      rgba(255, 255, 255, 0.01) 100%
     );
-  mix-blend-mode: screen;
-}
-
-.glass__rim {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.glass__rim rect {
-  rx: inherit;
-  ry: inherit;
 }
 
 .glass__content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
-}
-
-/* A small grace note — a subtle specular sheen that sweeps on hover,
-   the same way iOS glass pills glint when pressed. */
-.glass::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.18) 50%,
-    transparent 65%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--dur-2) var(--ease-out);
-  z-index: 2;
-}
-
-.glass:hover::after,
-a.glass:focus-visible::after {
-  opacity: 0.6;
 }
 
 /* Fallback for browsers without backdrop-filter support: darker tint so
    cards still read against the aurora. */
 @supports not (backdrop-filter: blur(1px)) {
   .glass__refraction {
-    background: rgba(10, 10, 10, 0.68);
+    background: rgba(10, 10, 10, 0.6);
   }
 }

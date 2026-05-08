@@ -73,43 +73,37 @@ main {
 }
 
 .btn--primary {
-  background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
+  background: #fff;
   color: #000;
-  box-shadow:
-    0 10px 30px -12px rgba(255, 255, 255, 0.35),
-    0 1px 0 rgba(255, 255, 255, 0.8) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 8px 24px -12px rgba(255, 255, 255, 0.18);
 }
 
 .btn--primary:hover {
-  background: #fff;
-  box-shadow:
-    0 18px 40px -16px rgba(255, 255, 255, 0.5),
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+  background: #f2f2f2;
+  box-shadow: 0 12px 28px -14px rgba(255, 255, 255, 0.25);
 }
 
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--fg);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
   backdrop-filter: blur(10px) saturate(1.2);
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .btn--pill {
-  --pad-y: 12px;
+  --pad-y: 11px;
   --pad-x: 18px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--fg);
   font-size: 14px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .btn--pill:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
 }

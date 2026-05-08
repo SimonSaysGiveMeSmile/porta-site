@@ -58,7 +58,7 @@ export default function Hero() {
 function PhoneMock() {
   return (
     <div className="phone">
-      <Glass className="phone__frame">
+      <div className="phone__frame">
         <div className="phone__screen">
           <div className="phone__statusbar">
             <span>9:41</span>
@@ -118,7 +118,7 @@ function PhoneMock() {
             </Glass>
           </div>
         </div>
-      </Glass>
+      </div>
       <div className="phone__glow" aria-hidden />
     </div>
   );

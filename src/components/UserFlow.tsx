@@ -38,36 +38,13 @@ export default function UserFlow() {
       </header>
 
       <ol className="flow">
-        {steps.map((s, i) => (
+        {steps.map((s) => (
           <li key={s.n} className="flow__item">
             <Glass className="flow__card">
               <span className="flow__num">{s.n}</span>
               <h3 className="flow__title">{s.title}</h3>
               <p className="flow__body">{s.body}</p>
             </Glass>
-            {i < steps.length - 1 && (
-              <svg
-                className="flow__connector"
-                aria-hidden
-                viewBox="0 0 120 24"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M2 12 C 40 -6, 80 30, 118 12"
-                  fill="none"
-                  stroke="url(#flowStroke)"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                />
-                <defs>
-                  <linearGradient id="flowStroke" x1="0" x2="1">
-                    <stop offset="0%" stopColor="rgba(255,255,255,0.05)" />
-                    <stop offset="50%" stopColor="rgba(255,255,255,0.55)" />
-                    <stop offset="100%" stopColor="rgba(255,255,255,0.05)" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            )}
           </li>
         ))}
       </ol>

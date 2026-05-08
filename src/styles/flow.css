@@ -1,9 +1,8 @@
 .flow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(12px, 1.5vw, 24px);
+  gap: clamp(12px, 1.5vw, 20px);
   align-items: stretch;
-  counter-reset: flow-step;
 }
 
 .flow__item {
@@ -13,23 +12,23 @@
 }
 
 .flow__card {
-  padding: clamp(22px, 2vw, 30px);
+  padding: clamp(22px, 2vw, 28px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   height: 100%;
-  min-height: 220px;
+  min-height: 200px;
 }
 
 .flow__num {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
   color: var(--fg-mute);
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
   align-self: flex-start;
 }
 
@@ -47,23 +46,15 @@
   line-height: 1.55;
 }
 
+/* Connectors are decorative and caused alignment jitter on narrow cards.
+   Hide them globally — the numbered chips already communicate order. */
 .flow__connector {
-  position: absolute;
-  top: 50%;
-  right: -16px;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 24px;
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 
 @media (max-width: 900px) {
   .flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .flow__connector {
-    display: none;
   }
 }
 
