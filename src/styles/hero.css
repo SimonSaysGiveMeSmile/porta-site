@@ -10,8 +10,8 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(20px, 2.6vw, 40px);
   align-items: center;
   width: 100%;
 }
@@ -124,7 +124,7 @@
 
 .phone {
   position: relative;
-  width: min(340px, 78vw);
+  width: min(270px, 68vw);
   aspect-ratio: 9 / 19;
   transform: perspective(1400px) rotateX(2deg) rotateY(-3deg);
 }
