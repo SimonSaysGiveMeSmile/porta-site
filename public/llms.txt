@@ -1,0 +1,13 @@
+# Porta
+
+> Porta is "AirDrop with links": an iPhone app that turns your phone into a temporary personal sharing node, so you can send a file to anyone, anywhere, who opens a link in a browser. Files stream directly from your phone with no cloud uploads and no account needed by the receiver.
+
+How it works: pick a file from the iOS share sheet (Photos, Files or any app), Porta creates a temporary signed link, the receiver opens it in any browser (Safari, Chrome, Edge or Firefox) and requests the download, you approve with one tap, and the file streams phone-to-browser over an ephemeral, end-to-end encrypted session (DTLS over WebRTC, with automatic relay fallback). The link expires when the transfer ends, with no sync folders, permanent hosting or leftover copies. Porta is in private beta, and the site has a waitlist.
+
+## Pages
+- [Home](https://porta-site-alpha.vercel.app/): product overview, features, the four-step user flow, and the waitlist sign-up
+
+## About
+- [Made by Simon Tian](https://www.hisimon.pro): engineer and founder who builds AI products, apps and games
+- [More apps by Simon Tian](https://www.hisimon.pro/projects)
+- [Source code](https://github.com/SimonSaysGiveMeSmile/porta-site)
