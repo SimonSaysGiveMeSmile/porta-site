@@ -1,12 +1,24 @@
 # Porta — marketing site
 
-Landing site for **Porta** — _AirDrop with links_.
+Porta site is the marketing and waitlist landing page for **Porta** (_AirDrop with links_), an iPhone app that shares files peer-to-peer through a temporary link.
+
+![Porta landing page: "AirDrop. With links." hero with an iPhone mock showing a live file link, an approve request and a streaming transfer](docs/screenshot.png)
+
+Live demo: https://porta-site-alpha.vercel.app
 
 Porta turns any iPhone into a temporary personal sharing node: pick a file, generate a live link, approve the incoming request, and stream the bytes directly to any browser on the planet. No cloud uploads, no accounts for receivers, no permanent hosting.
 
 This repo hosts the public-facing website that introduces and advertises the Porta app. It is intentionally lean.
 
-## Stack
+## Features
+
+- Hero with an iPhone mock of a live link, an approval request and a streaming transfer
+- Six-up feature grid and a four-step "how it works" flow
+- Waitlist email capture with an App Store link
+- Dark and light mode toggle
+- SEO metadata (Open Graph, Twitter Cards, JSON-LD), `robots.txt`, `sitemap.xml`, PWA manifest and `public/llms.txt`
+
+## Tech stack
 
 - **React 18** + **TypeScript**
 - **Vite 6** build + dev server
@@ -42,6 +54,7 @@ src/
     Features.tsx          # Six-up feature grid
     UserFlow.tsx          # Four-step flow
     Waitlist.tsx          # Email capture + app store link
+    ThemeToggle.tsx       # Dark / light mode switch
     Footer.tsx
   styles/
     globals.css           # Imports every partial below
@@ -57,7 +70,10 @@ src/
     footer.css
 ```
 
-## Scripts
+## Getting started
+
+Requires Node.js 20+ (see `.nvmrc`).
+
 
 ```bash
 npm install
@@ -72,4 +88,4 @@ The form currently persists submissions to `localStorage` under `porta.waitlist`
 
 ## License
 
-All rights reserved. This site promotes the Porta app — the underlying product vision lives in the main Porta monorepo.
+The code in this repo is under the MIT License (see `LICENSE`). The Porta name and brand are not covered by it. This site promotes the Porta app — the underlying product vision lives in the main Porta monorepo.

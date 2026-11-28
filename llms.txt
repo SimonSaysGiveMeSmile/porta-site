@@ -1,0 +1,23 @@
+# Porta site
+
+> Source code of the marketing and waitlist landing page for Porta ("AirDrop with links"), an iPhone app that turns your phone into a temporary personal sharing node: pick a file, get a live link, approve the receiver's request, and the file streams directly from the phone to any browser with no cloud upload and no account for the receiver.
+
+- What it is: a single-page React marketing site with a waitlist form (stored in localStorage until a backend exists)
+- Stack: React 18, TypeScript, Vite 6, hand-written CSS, SVG "liquid glass" filters (feDisplacementMap + feSpecularLighting)
+- Live site: https://porta-site-alpha.vercel.app, hosted on Vercel
+- License: MIT
+
+## Docs
+
+- [README](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/README.md): overview, design notes, project structure and npm scripts
+- [App entry](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/src/App.tsx): page composition
+- [Liquid glass filter](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/src/components/LiquidGlassDefs.tsx): SVG filter definitions behind every glass surface
+- [Glass primitive](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/src/components/Glass.tsx)
+- [Waitlist form](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/src/components/Waitlist.tsx)
+
+## Optional
+
+- [Site llms.txt](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/public/llms.txt): the product summary served on the live site
+- [CHANGELOG](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/CHANGELOG.md)
+- [package.json](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/package.json)
+- [index.html](https://github.com/SimonSaysGiveMeSmile/porta-site/blob/main/index.html): SEO metadata and JSON-LD
